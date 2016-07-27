@@ -1,0 +1,3 @@
+package: github.com/promiseofcake/merged-prs
+import:
+- package: github.com/hashicorp/hcl
