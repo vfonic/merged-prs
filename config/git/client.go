@@ -3,6 +3,7 @@ package git
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"os/exec"
 	"strings"
@@ -43,18 +44,24 @@ func (c *client) GetMergeCommits(a string, b string) []*MergeCommit {
 		log.Fatalf("Something went wrong with the previous command: %v", cmd.Args)
 	}
 
+	return c.processMergeCommits(out)
+
 	err = cmd.Start()
 	if err != nil {
 		log.Fatalf("Could not start command")
 	}
 
+	return c.processMergeCommits(out)
+}
+
+func (c *client) processMergeCommits(in io.Reader) []*MergeCommit {
 	list := []*MergeCommit{}
 
-	s := bufio.NewScanner(out)
+	s := bufio.NewScanner(in)
 	for s.Scan() {
 		raw := strings.SplitN(s.Text(), " ", 2)
 
-		// bad commitgit
+		// bad commit git
 		if raw[0] == "" || raw[1] == "" {
 			continue
 		}
