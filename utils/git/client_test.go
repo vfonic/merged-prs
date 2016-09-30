@@ -33,4 +33,6 @@ func TestProcessMergeCommits(t *testing.T) {
 
 	assert.Equal(t, "3d7dae8", list[0].Ref)
 	assert.Equal(t, "Merge pull request #3524 from vsco/gearman-backfill", list[0].Message)
+	assert.Equal(t, "65781df", list[16].Ref)
+	assert.Equal(t, "Merge pull request #3448 from vsco/bms/careers-order-by-open-jobs", list[16].Message)
 }
