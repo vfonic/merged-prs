@@ -16,6 +16,7 @@ import (
 	"github.com/google/go-github/github"
 	"github.com/rodaine/table"
 )
+import "golang.org/x/oauth2"
 
 const (
 	gitHubRoot = "http://github.com"
