@@ -15,7 +15,7 @@ import (
 
 	"github.com/google/go-github/github"
 	"github.com/rodaine/table"
-	"golang.org/x/net/context"
+	"context"
 )
 
 const (
