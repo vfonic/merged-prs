@@ -5,6 +5,7 @@ import:
 - package: github.com/google/go-github
   subpackages:
   - github
+  - context
 - package: github.com/rodaine/table
 - package: golang.org/x/oauth2
 - package: github.com/hashicorp/hcl
