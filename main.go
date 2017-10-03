@@ -15,7 +15,6 @@ import (
 
 	"github.com/google/go-github/github"
 	"github.com/rodaine/table"
-	"context"
 )
 
 const (
@@ -143,8 +142,7 @@ func processPullRequests(ids []int, client *github.Client, config Config, repo s
 
 	for _, item := range ids {
 		go func(client *github.Client, org string, r string, id int) {
-			ctx := context.Background()
-			pr, _, err := client.PullRequests.Get(ctx, org, r, id)
+			pr, _, err := client.PullRequests.Get(org, r, id)
 			if err != nil {
 				log.Printf("Error retrieving pull request: %d, %v", id, err)
 				wg.Done()
