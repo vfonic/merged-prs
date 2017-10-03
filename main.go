@@ -15,8 +15,8 @@ import (
 
 	"github.com/google/go-github/github"
 	"github.com/rodaine/table"
+	"golang.org/x/net/context"
 )
-import "context"
 
 const (
 	gitHubRoot = "http://github.com"
